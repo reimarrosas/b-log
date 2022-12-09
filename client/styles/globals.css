@@ -1,0 +1,109 @@
+/* ************************** */
+/* * RESET                  * */
+/* ************************** */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+}
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ************************** */
+/* * Default                * */
+/* ************************** */
+
+:root {
+    --font-sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+        helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+    --font-serif: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman,
+        Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji,
+        Segoe UI Emoji, Segoe UI Symbol;
+    --font-mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+
+    font-family: var(--font-sans);
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: var(--font-mono)
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --clr-main: ;
+        --clr-bg:  ;
+        --clr-sub: ;
+        --clr-accent: ;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --clr-main:  ;
+        --clr-bg: ;
+        --clr-sub: ;
+        --clr-accent: ;
+    }
+}
+
+/* ************************** */
+/* * Utilities              * */
+/* ************************** */
+
+.container {
+    max-width: var(--mx-w, 80ch);
+    margin-inline: auto;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
