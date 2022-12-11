@@ -6,9 +6,9 @@ namespace server.DTOs
     {
         [Required]
         [EmailAddress]
-        public string Email { get; set; }
+        public string Email { get; set; } = null!;
         [Required]
         [MinLength(8)]
-        public string Password { get; set; }
+        public string Password { get; set; } = null!;
     }
 }

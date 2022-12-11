@@ -5,6 +5,6 @@ namespace server.DTOs
     public class SignupDTO : UserDTO
     {
         [Required]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
     }
 }
