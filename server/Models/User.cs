@@ -1,5 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-
 namespace server.Models
 {
     public class User
@@ -8,5 +6,7 @@ namespace server.Models
         public string Name { get; set; } = null!;
         public string Email { get; set; } = null!;
         public string Password { get; set; } = null!;
+
+        public List<Logbook> UserLogbooks { get; set; } = null!;
     }
 }

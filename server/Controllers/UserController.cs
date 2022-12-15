@@ -84,7 +84,7 @@ namespace server.Controllers
 
                 _context.SaveChanges();
             }
-            catch (DbUpdateException ex)
+            catch (System.Exception ex)
             {
                 _logger.LogError(ex, "Signup body error: {Body}", signup);
                 return StatusCode(500, new { Message = "Something broke!" });
