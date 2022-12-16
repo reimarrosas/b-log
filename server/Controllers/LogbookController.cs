@@ -72,6 +72,7 @@ namespace server.Controllers
             }
 
             logbook.LogbookName = newLogbook.LogbookName;
+            logbook.UpdatedAt = DateTime.UtcNow;
 
             try
             {
@@ -86,7 +87,7 @@ namespace server.Controllers
 
             return Ok(new { Message = $"Logbook {logbook.LogbookID} updated successfully!" });
         }
-        [HttpDelete("logbookID")]
+        [HttpDelete("{logbookID}")]
         public IActionResult DeleteSingleLogbook(Guid logbookID)
         {
             var logbook = _context.Logbooks.Where(l => l.LogbookUser.UserID.ToString() == CurrentUserID && l.LogbookID == logbookID).FirstOrDefault();
@@ -107,7 +108,7 @@ namespace server.Controllers
                 return StatusCode(500, new { Message = "Something broke!" });
             }
 
-            return Ok(new { Message = $"Logbook {logbookID} deleted successfully!" });
+            return Ok(new { Message = $"Logbook {logbookID} deletion successful!" });
         }
     }
 }
