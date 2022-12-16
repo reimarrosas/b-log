@@ -1,7 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 
 using server.Models;
+using server.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,8 @@ builder.Services.AddControllers(opts =>
 {
     opts.RespectBrowserAcceptHeader = true;
 });
+
+builder.Services.AddSingleton<IAuthorizationMiddlewareResultHandler, CustomAuthorization>();
 
 builder.Services
        .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

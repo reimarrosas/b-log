@@ -8,17 +8,18 @@ using System.Security.Claims;
 
 using server.Models;
 using server.DTOs;
+using Microsoft.AspNetCore.Authorization;
 
 namespace server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    public class UserController : ControllerBase
+    public class AuthController : ControllerBase
     {
         private readonly ILogger _logger;
         private readonly ServerContext _context;
-        public UserController(ILogger<UserController> logger, ServerContext context)
+        public AuthController(ILogger<AuthController> logger, ServerContext context)
         {
             _logger = logger;
             _context = context;
@@ -62,7 +63,6 @@ namespace server.Controllers
 
             return Ok(new { Message = "User login successful!" });
         }
-
         [HttpPost("signup")]
         public IActionResult Signup([FromBody] SignupDTO signup)
         {
@@ -84,13 +84,36 @@ namespace server.Controllers
 
                 _context.SaveChanges();
             }
-            catch (DbUpdateException ex)
+            catch (System.Exception ex)
             {
                 _logger.LogError(ex, "Signup body error: {Body}", signup);
                 return StatusCode(500, new { Message = "Something broke!" });
             }
 
             return StatusCode(201, new { Message = "User creation successful!" });
+        }
+        [HttpGet("me")]
+        [Authorize]
+        public IActionResult Me()
+        {
+            var userID = User.Claims.Where(u => u.Type == "UserID").First().Value;
+            var email = User.Claims.Where(u => u.Type == "Email").First().Value;
+            return Ok(new
+            {
+                Message = "User is currently logged in!",
+                User = new
+                {
+                    ID = userID,
+                    Email = email
+                }
+            });
+        }
+        [HttpPost("logout")]
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return Ok(new { Message = "User logout successful!" });
         }
     }
 }
