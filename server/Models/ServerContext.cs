@@ -11,5 +11,7 @@ namespace server.Models
 
         public DbSet<User> Users { get; set; } = null!;
         public DbSet<Logbook> Logbooks { get; set; } = null!;
+        public DbSet<Log> Logs { get; set; } = null!;
+        public DbSet<LogEntry> LogEntries { get; set; } = null!;
     }
 }
