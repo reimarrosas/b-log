@@ -7,7 +7,7 @@ using server.Models;
 
 namespace server.Controllers
 {
-    [Route("api/{logbookID}/[controller]")]
+    [Route("api/Logbook/{logbookID}/[controller]")]
     [ApiController]
     [Produces("application/json")]
     [Authorize]
@@ -40,7 +40,7 @@ namespace server.Controllers
             return Ok(new { Message = "Logbook logs fetch successful!", Logs = logs });
         }
         [HttpPost]
-        public IActionResult CreateLog(Guid logbookID, LogCreateDTO newLog)
+        public IActionResult CreateLog(Guid logbookID, [FromBody] LogCreateDTO newLog)
         {
             var logbook = _context.Logbooks.Include(lb => lb.LogbookUser).Where(lb => lb.LogbookID == logbookID).FirstOrDefault();
 
