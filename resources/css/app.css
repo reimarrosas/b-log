@@ -1,0 +1,7 @@
+.flash-message {
+    position: absolute;
+    content: "";
+    right: 5px;
+    bottom: 5px;
+    max-width: 65ch;
+}

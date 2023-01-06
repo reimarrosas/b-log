@@ -11,6 +11,7 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://kit.fontawesome.com/659ec9636a.js" crossorigin="anonymous"></script>
     @vite('resources/js/app.js')
+    @vite('resources/css/app.css')
     <title>B-Log | {{ $title ?? 'Home' }}</title>
 </head>
 
