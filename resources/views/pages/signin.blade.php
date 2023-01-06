@@ -3,6 +3,11 @@
     <main class="columns is-centered">
         <section class="section column is-one-third has-shadow">
             <h1 class="title has-text-weight-bold has-text-centered">Login!</h1>
+            @error('login_failure')
+                <div class="notification is-danger">
+                    {{ $message }}
+                </div>
+            @enderror
             <form action="/auth/login" method="post">
                 @csrf
                 <div class="field">
@@ -33,7 +38,8 @@
         </section>
     </main>
     @if (session()->has('register_success'))
-        <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)" x-transition class="notification is-success has-text-centered flash-message">
+        <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)" x-transition
+            class="notification is-success has-text-centered flash-message">
             {{ session()->get('register_success') }}
         </div>
     @endif

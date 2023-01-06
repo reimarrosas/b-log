@@ -19,8 +19,10 @@
                     <span class="is-size-6 has-text-weight-semibold">Welcome, {{ auth()->user()->name }}!</span>
                 </div>
                 <div class="navbar-item">
-                    <form class="ml-4" action="auth/logout" method="post"><input type="submit" value="Log Out"
-                            class="button is-danger is-fullwidth"></form>
+                    <form class="ml-4" action="/auth/logout" method="post">
+                        @csrf
+                        <input type="submit" value="Log Out" class="button is-danger is-fullwidth">
+                    </form>
                 </div>
             @else
                 <div class="navbar-item">
