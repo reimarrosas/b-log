@@ -15,10 +15,8 @@
     <title>B-Log | {{ $title ?? 'Home' }}</title>
 </head>
 
-<body>
-    <header class="container">
-        <x-navbar />
-    </header>
+<body class="has-navbar-fixed-top">
+    <x-navbar />
     {{ $slot }}
     @if (session()->has('login_success'))
         <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)" x-transition

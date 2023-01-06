@@ -37,8 +37,8 @@
                 <div class="field">
                     <label for="password_confirmation" class="label">Confirm Password</label>
                     <div class="control">
-                        <input type="password" name="password_confirmation" id="password_confirmation"
-                            class="input" placeholder="********">
+                        <input type="password" name="password_confirmation" id="password_confirmation" class="input"
+                            placeholder="********">
                     </div>
                     @error('password_confirmation')
                         <p class="has-text-danger mt-1 mt-1"> {{ $message }} </p>
