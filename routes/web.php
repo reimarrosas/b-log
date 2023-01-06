@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/auth/signup', [SignupController::class, 'signup'])->middleware('guest');
+Route::post('/auth/register', [SignupController::class, 'register'])->middleware('guest');
