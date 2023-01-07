@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SignupController;
+use App\Http\Controllers\LogbookController;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages.home');
-})->middleware('auth');
+    return redirect(RouteServiceProvider::HOME);
+});
 
 Route::get('/auth/signup', [SignupController::class, 'signup'])->middleware('guest');
 Route::post('/auth/register', [SignupController::class, 'register'])->middleware('guest');
@@ -26,3 +28,5 @@ Route::get('/auth/signin', [LoginController::class, 'signin'])->name('signin')->
 Route::post('/auth/login', [LoginController::class, 'login'])->middleware('guest');
 
 Route::post('/auth/logout', [LoginController::class, 'logout'])->middleware('auth');
+
+Route::resource('logbooks', LogbookController::class)->except(['show'])->middleware('auth');

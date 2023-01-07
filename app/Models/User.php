@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->attributes['password'] = bcrypt($value);
     }
+
+    public function logbooks()
+    {
+        return $this->hasMany(Logbook::class);
+    }
 }

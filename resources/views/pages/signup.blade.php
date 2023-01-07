@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:title>Register</x-slot:title>
     <main class="columns is-centered">
-        <section class="section column is-one-third has-shadow">
+        <section class="section column is-one-third box mt-6">
             <h1 class="title has-text-weight-bold has-text-centered">Register!</h1>
             <form action="/auth/register" method="post">
                 @csrf

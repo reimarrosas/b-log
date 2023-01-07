@@ -19,10 +19,7 @@
     <x-navbar />
     {{ $slot }}
     @if (session()->has('login_success'))
-        <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)" x-transition
-            class="notification is-success has-text-centered flash-message">
-            {{ session()->get('login_success') }}
-        </div>
+        <x-flash :flash_name="'login_success'" />
     @endif
 </body>
 {{ $scripts ?? '' }}

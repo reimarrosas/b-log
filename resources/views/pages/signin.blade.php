@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:title>Login</x-slot:title>
     <main class="columns is-centered">
-        <section class="section column is-one-third has-shadow">
+        <section class="section column is-one-third box mt-6">
             <h1 class="title has-text-weight-bold has-text-centered">Login!</h1>
             @error('login_failure')
                 <div class="notification is-danger">
@@ -38,9 +38,6 @@
         </section>
     </main>
     @if (session()->has('register_success'))
-        <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)" x-transition
-            class="notification is-success has-text-centered flash-message">
-            {{ session()->get('register_success') }}
-        </div>
+        <x-flash :flash_name="'register_success'" />
     @endif
 </x-layout>
