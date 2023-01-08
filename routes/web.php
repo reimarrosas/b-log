@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SignupController;
 use App\Http\Controllers\LogbookController;
+use App\Http\Controllers\LogController;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +31,5 @@ Route::post('/auth/login', [LoginController::class, 'login'])->middleware('guest
 Route::post('/auth/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 Route::resource('logbooks', LogbookController::class)->except(['show'])->middleware('auth');
+
+Route::resource('logbooks.logs', LogController::class)->middleware('auth');

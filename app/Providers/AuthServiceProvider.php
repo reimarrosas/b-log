@@ -4,6 +4,7 @@ namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
 
+use App\Models\Log;
 use App\Models\Logbook;
 use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -31,6 +32,10 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('modify-logbook', function (User $user, Logbook $logbook) {
             return $user->id === $logbook->user->id;
+        });
+
+        Gate::define('modify-log', function (User $user, Logbook $logbook, Log $log) {
+            return $user->id === $logbook->user->id && $logbook->id == $log->logbook->id;
         });
     }
 }

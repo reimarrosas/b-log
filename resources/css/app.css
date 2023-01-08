@@ -5,3 +5,7 @@
     bottom: 5px;
     max-width: 65ch;
 }
+
+.ql-editor {
+    min-height: min(200px, 10vh);
+}

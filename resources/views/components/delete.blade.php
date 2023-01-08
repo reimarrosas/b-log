@@ -7,7 +7,7 @@
         <div class="modal-background" @click="modalOpen = false"></div>
         <section class="modal-card">
             <header class="modal-card-head">
-                <h1 class="modal-card-title has-text-weight-semibold">Delete {{ $resource }} prompt</h2>
+                <h1 class="modal-card-title has-text-weight-semibold">Delete {{ $resource }} prompt</h1>
             </header>
             <main class="modal-card-body">
                 <p class="block">Are you sure you want to delete this {{ $resource }}?</p>
