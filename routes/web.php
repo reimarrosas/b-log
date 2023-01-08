@@ -18,18 +18,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect(RouteServiceProvider::HOME);
+Route::middleware(['throttle:global'])->group(function () {
+    Route::get('/', function () {
+        return redirect(RouteServiceProvider::HOME);
+    });
+
+    Route::get('/auth/signup', [SignupController::class, 'signup'])->middleware('guest');
+    Route::post('/auth/register', [SignupController::class, 'register'])->middleware('guest');
+
+    Route::get('/auth/signin', [LoginController::class, 'signin'])->name('signin')->middleware('guest');
+    Route::post('/auth/login', [LoginController::class, 'login'])->middleware('guest');
+
+    Route::post('/auth/logout', [LoginController::class, 'logout'])->middleware('auth');
+
+    Route::resource('logbooks', LogbookController::class)->except(['show'])->middleware('auth');
+
+    Route::resource('logbooks.logs', LogController::class)->middleware('auth');
 });
-
-Route::get('/auth/signup', [SignupController::class, 'signup'])->middleware('guest');
-Route::post('/auth/register', [SignupController::class, 'register'])->middleware('guest');
-
-Route::get('/auth/signin', [LoginController::class, 'signin'])->name('signin')->middleware('guest');
-Route::post('/auth/login', [LoginController::class, 'login'])->middleware('guest');
-
-Route::post('/auth/logout', [LoginController::class, 'logout'])->middleware('auth');
-
-Route::resource('logbooks', LogbookController::class)->except(['show'])->middleware('auth');
-
-Route::resource('logbooks.logs', LogController::class)->middleware('auth');
