@@ -3,7 +3,9 @@ services:
     image: postgres:15.1-alpine
     restart: always
     environment:
-      POSTGRES_PASSWORD: reimar
+      POSTGRES_USER: dbtest
+      POSTGRES_PASSWORD: dbtest
+      POSTGRES_DB: blog
     ports:
       - "127.0.0.1:5432:5432"
     volumes:
