@@ -2,7 +2,7 @@
     <x-slot:title>
         Logbooks
     </x-slot:title>
-    <main class="container pt-6">
+    <main class="container pt-6 px-2">
         <h1 class="title has-text-weight-bold has-text-centered">Logbooks</h1>
         <div class="has-text-right">
             <a href="/logbooks/create" class="button is-primary">Create</a>
@@ -18,7 +18,7 @@
             <tbody>
                 @foreach ($logbooks as $logbook)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
+                        <td class="is-flex is-vcentered">{{ $loop->iteration }}</td>
                         <td class="has-text-weight-bold"><a href="/logbooks/{{ $logbook->id }}/logs" class="button is-ghost">{{ $logbook->name }}</a></td>
                         <td class="is-flex is-align-items-center">
                             <a class="button is-warning mr-2" href="/logbooks/{{ $logbook->id }}/edit">

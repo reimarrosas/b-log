@@ -2,7 +2,7 @@
     <x-slot:title>
         Create Logbook
     </x-slot:title>
-    <main class="columns is-centered">
+    <main class="columns is-centered px-4">
         <section class="section column is-one-third box mt-6">
             <h1 class="title has-text-weight-bold">Create Logbook</h1>
             <form action="/logbooks" method="post">

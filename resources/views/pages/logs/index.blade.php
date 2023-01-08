@@ -2,7 +2,7 @@
     <x-slot:title>
         Logs
     </x-slot:title>
-    <main class="columns is-centered">
+    <main class="columns is-centered px-2">
         <section class="column is-half mt-6">
             <h1 class="title has-text-weight-bold has-text-centered">Logs</h1>
             <div class="is-flex is-justify-content-space-between is-align-items-center mb-4">

@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:title>Login</x-slot:title>
-    <main class="columns is-centered">
+    <main class="columns is-centered px-2">
         <section class="section column is-one-third box mt-6">
             <h1 class="title has-text-weight-bold has-text-centered">Login!</h1>
             @error('login_failure')

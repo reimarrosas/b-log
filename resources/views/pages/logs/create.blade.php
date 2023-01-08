@@ -2,7 +2,7 @@
     <x-slot:title>
         Create Logs
     </x-slot:title>
-    <main class="columns is-centered">
+    <main class="columns is-centered px-2">
         <section class="column section box is-one-third mt-6">
             <h1 class="title has-text-weight-bold has-text-centered">Create Log</h1>
             <form x-data="data()" x-init="initQuill()" @submit="submit()"
