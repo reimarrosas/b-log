@@ -36,4 +36,4 @@ The web application should have at least the following features:
 - [Laravel](https://laravel.com/) - A PHP Web Framework for rapid development and scaffolding.
 - [Bulma](https://bulma.io/) - A CSS Component Framework to easily build a responsive web interface.
 - [AlpineJS](https://alpinejs.dev/) - A lightweight Javascript framework based on Vue.
-- [PostgreSQL](https://postgresql.org) - A relation database management system that will handle data persistence of the application in storing user info, logs, logbooks, and more.
+- [PostgreSQL](https://postgresql.org) - A powerful open-source object-relational database management system 
