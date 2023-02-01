@@ -20,7 +20,7 @@ class LogController extends Controller
         Gate::authorize('modify-logbook', $logbook);
 
         return view('pages.logs.index', [
-            'logs' => $logbook->logs,
+            'logs' => $logbook->logs->sortByDesc('date'),
             'logbook' => $logbook
         ]);
     }
